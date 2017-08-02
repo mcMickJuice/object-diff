@@ -1,10 +1,22 @@
 import isEqual from 'lodash/isEqual'
 import isObject from 'lodash/isObject'
 import isArray from 'lodash/isArray'
+import isNumber from 'lodash/isNumber'
+import isDate from 'lodash/isDate'
+import isString from 'lodash/isString'
+import isBoolean from 'lodash/isBoolean'
+
+const primitiveTypes = [isNumber,isDate,isString,isBoolean];
 
 export function arrayContains(arr, element) {
     //TODO does this iterate all elements or exit after first true?
     return arr.some(item => isEqual(item, element))
+}
+
+export function isPrimitive(entity) {
+    return primitiveTypes.some(func => {
+        return func(entity);
+    })
 }
 
 export function isSameType(firstEntity, secondEntity) {

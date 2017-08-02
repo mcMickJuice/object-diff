@@ -1,4 +1,4 @@
-import {arrayContains, isSameType, bothArray} from './utils'
+import {arrayContains, isSameType, bothArray, isPrimitive} from './utils'
 
 export function diff(firstObj, nextObj, options) {
     const isAddedOnly = !options || !options.removed;
